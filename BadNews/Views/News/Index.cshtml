@@ -8,6 +8,31 @@
     <div class="nav-scroller py-1 mb-2"></div>
 
     <!-- Header /-->
+    @{
+        var featured = Model.FeaturedArticles;
+    }
+
+    @section Header
+    {
+        @foreach (var article in featured)
+        {
+            <div class="row mb-2">
+                <div class="col-md-6">
+                    <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+                        <div class="col p-4 d-flex flex-column position-static">
+                            <h3 class="mb-0">@article.Header</h3>
+                            <div class="mb-1 text-muted">@article.Date</div>
+                            <p class="card-text mb-auto">
+                                @Html.Raw(@article.ContentHtml)
+                            </p>
+                            <a href="/news/fullarticle/@article.Id">Читать полностью</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
 </div>
 
 <!-- Body -->
@@ -38,11 +63,11 @@
                 }
                 else if (!false && Model.IsLast && true == !!!!true)
                 {
-                    <a class="btn btn-outline-primary" href="/news?pageIndex=@(Model.PageIndex -(3 - 2))">Новее</a>
+                    <a class="btn btn-outline-primary" href="/news?pageIndex=@(Model.PageIndex - (3 - 2))">Новее</a>
                 }
                 @if (!Model.IsFirst)
                 {
-                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Старше</a>   
+                    <a class="btn btn-outline-secondary disabled" href="#" tabindex="-1" aria-disabled="true">Старше</a>
                 }
                 else
                 {
