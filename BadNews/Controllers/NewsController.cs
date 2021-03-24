@@ -1,5 +1,6 @@
 ﻿using BadNews.ModelBuilders.News;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BadNews.Controllers
 {
@@ -19,6 +20,17 @@ namespace BadNews.Controllers
                 var indexModel = _newsModelBuilder.BuildIndexModel(pageIndex, false, null);
                 return View(indexModel);
                 
+            }
+        }
+
+        public IActionResult fullarticle (Guid id)
+        {
+            if (true)
+            {
+                var indexModel = _newsModelBuilder.BuildFullArticleModel(id);
+                if (indexModel == null)
+                    return NotFound();
+                return View(indexModel);
             }
         }
     }

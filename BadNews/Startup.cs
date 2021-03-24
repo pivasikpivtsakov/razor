@@ -77,7 +77,7 @@ namespace BadNews
 
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllerRoute("default", "{controller=News}/{action=Index}");
+                endpoints.MapControllerRoute("default", "{controller=News}/{action=Index}/{id}");
             });
         }
 
