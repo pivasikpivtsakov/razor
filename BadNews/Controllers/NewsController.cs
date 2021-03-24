@@ -13,6 +13,7 @@ namespace BadNews.Controllers
             _newsModelBuilder = newsModelBuilder;
         }
 
+        [HttpGet("/")]
         public IActionResult Index(int pageIndex = 0)
         {
             if (true)
